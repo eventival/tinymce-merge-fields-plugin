@@ -8,7 +8,7 @@
     "build": "grunt",
     "test": "bedrock-auto -b chrome-headless -d src/test/ts/",
     "test-manual": "bedrock -d src/test/ts/",
-    "start": "grunt webpack"
+    "start": "grunt connect webpack"
   },
   "keywords": [],
   "author": "Mahmood Bazdar",
@@ -26,6 +26,7 @@
     "grunt": "^1.1.0",
     "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-connect": "^3.0.0",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-uglify": "^4.0.0",
     "grunt-eslint": "^23.0.0",

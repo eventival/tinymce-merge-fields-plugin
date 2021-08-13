@@ -32,7 +32,15 @@ module.exports = (grunt) => {
     shell: {
       command: "tsc",
     },
-
+    connect: {
+      server: {
+        options: {
+          port: 8000,
+          hostname: '*',
+          directory: '/src/demo/html',
+        }
+      }
+    },
     rollup: {
       options: {
         treeshake: true,
@@ -170,5 +178,6 @@ module.exports = (grunt) => {
     "concat",
     "copy",
     "version",
+    'webpack-dev-server'
   ]);
 };
