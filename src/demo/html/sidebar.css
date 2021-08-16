@@ -5,6 +5,9 @@
   padding: 5px;
   width: 300px;
 }
+.tox .tinymce-merge-fields ul {
+  list-style: none;
+}
 .tox .tinymce-merge-fields .search {
   color: #333;
   width: 100%;
@@ -16,9 +19,6 @@
 }
 .tox .tinymce-merge-fields .tree {
   margin: 1em;
-}
-.tox .tinymce-merge-fields .tree ul {
-  list-style: none;
 }
 .tox .tinymce-merge-fields .tree ul li {
   padding: 1em 0 0 1em;
@@ -135,7 +135,7 @@
   transition: opacity 0.3s;
   font-size: 12px;
 }
-.tox .tinymce-merge-fields .tooltip::after {
+.tox .tinymce-merge-fields .tooltip .tooltip-text::after {
   content: "";
   position: absolute;
   top: 100%;

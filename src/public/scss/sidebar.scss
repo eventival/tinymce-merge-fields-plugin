@@ -5,6 +5,10 @@
     padding: 5px;
     width: 300px;
 
+    ul {
+      list-style: none;
+    }
+
     .search {
       color: #333;
       width: 100%;
@@ -18,12 +22,8 @@
     .tree {
       margin: 1em;
 
-      ul {
-        list-style: none;
-
-        li {
-          padding: 1em 0 0 1em;
-        }
+      ul li {
+        padding: 1em 0 0 1em;
       }
 
       input {
@@ -155,17 +155,17 @@
         opacity: 0;
         transition: opacity 0.3s;
         font-size: 12px;
-      }
 
-      &::after {
-        content: "";
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        margin-left: -5px;
-        border-width: 5px;
-        border-style: solid;
-        border-color: #555 transparent transparent transparent;
+        &::after {
+          content: "";
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          margin-left: -5px;
+          border-width: 5px;
+          border-style: solid;
+          border-color: #555 transparent transparent transparent;
+        }
       }
 
       &:hover .tooltip-text {
