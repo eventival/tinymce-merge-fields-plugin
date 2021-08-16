@@ -22,6 +22,10 @@
     .tree {
       margin: 1rem;
 
+      ul {
+        margin: 0;
+      }
+
       ul li {
         padding: 1rem 0 0 1rem;
       }
@@ -43,6 +47,7 @@
         line-height: 1.2;
         position: relative;
         padding: 0 0 1rem 1rem;
+        vertical-align: middle;
 
         &:before {
           position: absolute;
@@ -74,7 +79,7 @@
         display: inline-block;
         background: #fff;
 
-        &:after {
+        &::after {
           position: absolute;
           top: 0;
           left: -1.5rem;
@@ -184,3 +189,9 @@
   border-radius: 3px;
   display: inline-block;
 }
+
+.m-0 { margin: 0; }
+.m-1 { margin: 1rem; }
+
+.p-0 { padding: 0; }
+.p-1 { padding: 1rem; }
