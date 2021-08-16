@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .tox .tinymce-merge-fields {
   overflow-y: scroll;
   border-left: solid 1px #ccc;
@@ -16,55 +17,73 @@
 .tox .tinymce-merge-fields .tree {
   margin: 1em;
 }
-
+.tox .tinymce-merge-fields .tree ul {
+  list-style: none;
+}
+.tox .tinymce-merge-fields .tree ul li {
+  padding: 1em 0 0 1em;
+}
 .tox .tinymce-merge-fields .tree input {
   position: absolute;
   clip: rect(0, 0, 0, 0);
 }
-.tox .tinymce-merge-fields ul {
-  list-style: none;
-}
-
-.tox .tinymce-merge-fields .tree input ~ ul {
-  display: none;
-}
-
 .tox .tinymce-merge-fields .tree input:checked ~ ul {
   display: block;
 }
-
+.tox .tinymce-merge-fields .tree input ~ ul {
+  display: none;
+}
 .tox .tinymce-merge-fields .tree li {
   line-height: 1.2;
   position: relative;
   padding: 0 0 1em 1em;
 }
-
-.tox .tinymce-merge-fields .tree ul li {
-  padding: 1em 0 0 1em;
+.tox .tinymce-merge-fields .tree li:before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -0.5em;
+  display: block;
+  width: 0;
+  border-left: 1px solid #777;
+  content: "";
 }
-
+.tox .tinymce-merge-fields .tree li:last-child:before {
+  height: 1em;
+  bottom: auto;
+}
 .tox .tinymce-merge-fields .tree > li:last-child {
   padding-bottom: 0;
 }
-
+.tox .tinymce-merge-fields .tree > li:last-child:before {
+  display: none;
+}
 .tox .tinymce-merge-fields .tree_label {
   position: relative;
   display: inline-block;
   background: #fff;
 }
-
+.tox .tinymce-merge-fields .tree_label:after {
+  position: absolute;
+  top: 0;
+  left: -1.5em;
+  display: block;
+  height: 0.5em;
+  width: 1em;
+  border-bottom: 1px solid #777;
+  border-left: 1px solid #777;
+  border-radius: 0 0 0 0.3em;
+  content: "";
+}
 .tox .tinymce-merge-fields button.tree_label {
   cursor: pointer;
 }
-
 .tox .tinymce-merge-fields label.tree_label {
   cursor: pointer;
 }
-
 .tox .tinymce-merge-fields label.tree_label:hover {
   color: #666;
 }
-
 .tox .tinymce-merge-fields label.tree_label:before {
   background: #000;
   color: #fff;
@@ -79,39 +98,12 @@
   text-align: center;
   line-height: 0.9em;
 }
-
 .tox .tinymce-merge-fields :checked ~ label.tree_label:before {
   content: "–";
 }
-
-.tox .tinymce-merge-fields .tree li:before {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: -0.5em;
-  display: block;
-  width: 0;
-  border-left: 1px solid #777;
-  content: "";
-}
-
-.tox .tinymce-merge-fields .tree_label:after {
-  position: absolute;
-  top: 0;
-  left: -1.5em;
-  display: block;
-  height: 0.5em;
-  width: 1em;
-  border-bottom: 1px solid #777;
-  border-left: 1px solid #777;
-  border-radius: 0 0 0 0.3em;
-  content: "";
-}
-
 .tox .tinymce-merge-fields label.tree_label:after {
   border-bottom: 0;
 }
-
 .tox .tinymce-merge-fields :checked ~ label.tree_label:after {
   border-radius: 0 0.3em 0 0;
   border-top: 1px solid #777;
@@ -122,21 +114,10 @@
   top: 0.5em;
   height: auto;
 }
-
-.tox .tinymce-merge-fields .tree li:last-child:before {
-  height: 1em;
-  bottom: auto;
-}
-
-.tox .tinymce-merge-fields .tree > li:last-child:before {
-  display: none;
-}
-
 .tox .tinymce-merge-fields .tooltip {
   position: relative;
   display: inline-block;
 }
-
 .tox .tinymce-merge-fields .tooltip .tooltip-text {
   visibility: hidden;
   width: 120px;
@@ -154,8 +135,7 @@
   transition: opacity 0.3s;
   font-size: 12px;
 }
-
-.tox .tinymce-merge-fields .tooltip .tooltip-text::after {
+.tox .tinymce-merge-fields .tooltip::after {
   content: "";
   position: absolute;
   top: 100%;
@@ -165,7 +145,6 @@
   border-style: solid;
   border-color: #555 transparent transparent transparent;
 }
-
 .tox .tinymce-merge-fields .tooltip:hover .tooltip-text {
   visibility: visible;
   opacity: 1;
