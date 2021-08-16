@@ -8,17 +8,16 @@ import {
   MergeField,
 } from "../../api/settings";
 import searchTree from "../../util/search-tree";
+import buildMergeField from "./merge-field";
 
 declare const tinymce: TinyMCE;
 
 const mergeFieldHtml = (editor: Editor, field: MergeField) => {
-  editor.fire("variableToHTML", {
+  editor.fire("mergeFieldToHTML", {
     value: field.name,
     cleanValue: field.value,
   });
-  return `<span class="merge-value" data-original-field-value="${encodeURI(
-    field.value
-  )}" contenteditable="false">${field.name}</span>`;
+  return buildMergeField(field);
 };
 
 const getMatchedFields = (editor: Editor, value: string): string[] => {
