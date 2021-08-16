@@ -20,10 +20,10 @@
     }
 
     .tree {
-      margin: 1em;
+      margin: 1rem;
 
       ul li {
-        padding: 1em 0 0 1em;
+        padding: 1rem 0 0 1rem;
       }
 
       input {
@@ -42,13 +42,13 @@
       li {
         line-height: 1.2;
         position: relative;
-        padding: 0 0 1em 1em;
+        padding: 0 0 1rem 1rem;
 
         &:before {
           position: absolute;
           top: 0;
           bottom: 0;
-          left: -0.5em;
+          left: -0.5rem;
           display: block;
           width: 0;
           border-left: 1px solid #777;
@@ -56,7 +56,7 @@
         }
 
         &:last-child:before {
-          height: 1em;
+          height: 1rem;
           bottom: auto;
         }
       }
@@ -77,13 +77,13 @@
         &:after {
           position: absolute;
           top: 0;
-          left: -1.5em;
+          left: -1.5rem;
           display: block;
-          height: 0.5em;
-          width: 1em;
+          height: 0.5rem;
+          width: 1rem;
           border-bottom: 1px solid #777;
           border-left: 1px solid #777;
-          border-radius: 0 0 0 0.3em;
+          border-radius: 0 0 0 0.3rem;
           content: "";
         }
       }
@@ -99,39 +99,39 @@
       &:hover {
         color: #666;
       }
-    }
 
-    label.tree_label:before {
-      background: #000;
-      color: #fff;
-      position: relative;
-      z-index: 1;
-      float: left;
-      margin: 0 1em 0 -2em;
-      width: 1em;
-      height: 1em;
-      border-radius: 1em;
-      content: "+";
-      text-align: center;
-      line-height: 0.9em;
+      &:before {
+        background: #000;
+        color: #fff;
+        position: relative;
+        z-index: 1;
+        float: left;
+        margin: 0 1rem 0 -2rem;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 1rem;
+        content: "+";
+        text-align: center;
+        line-height: 0.9rem;
+      }
+
+      &:after {
+        border-bottom: 0;
+      }
     }
 
     :checked ~ label.tree_label:before {
       content: "–";
     }
 
-    label.tree_label:after {
-      border-bottom: 0;
-    }
-
     :checked ~ label.tree_label:after {
-      border-radius: 0 0.3em 0 0;
+      border-radius: 0 0.3rem 0 0;
       border-top: 1px solid #777;
       border-right: 1px solid #777;
       border-bottom: 0;
       border-left: 0;
       bottom: 0;
-      top: 0.5em;
+      top: 0.5rem;
       height: auto;
     }
 

@@ -18,10 +18,10 @@
   transition: 0.4s;
 }
 .tox .tinymce-merge-fields .tree {
-  margin: 1em;
+  margin: 1rem;
 }
 .tox .tinymce-merge-fields .tree ul li {
-  padding: 1em 0 0 1em;
+  padding: 1rem 0 0 1rem;
 }
 .tox .tinymce-merge-fields .tree input {
   position: absolute;
@@ -36,20 +36,20 @@
 .tox .tinymce-merge-fields .tree li {
   line-height: 1.2;
   position: relative;
-  padding: 0 0 1em 1em;
+  padding: 0 0 1rem 1rem;
 }
 .tox .tinymce-merge-fields .tree li:before {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: -0.5em;
+  left: -0.5rem;
   display: block;
   width: 0;
   border-left: 1px solid #777;
   content: "";
 }
 .tox .tinymce-merge-fields .tree li:last-child:before {
-  height: 1em;
+  height: 1rem;
   bottom: auto;
 }
 .tox .tinymce-merge-fields .tree > li:last-child {
@@ -66,13 +66,13 @@
 .tox .tinymce-merge-fields .tree_label:after {
   position: absolute;
   top: 0;
-  left: -1.5em;
+  left: -1.5rem;
   display: block;
-  height: 0.5em;
-  width: 1em;
+  height: 0.5rem;
+  width: 1rem;
   border-bottom: 1px solid #777;
   border-left: 1px solid #777;
-  border-radius: 0 0 0 0.3em;
+  border-radius: 0 0 0 0.3rem;
   content: "";
 }
 .tox .tinymce-merge-fields button.tree_label {
@@ -90,28 +90,28 @@
   position: relative;
   z-index: 1;
   float: left;
-  margin: 0 1em 0 -2em;
-  width: 1em;
-  height: 1em;
-  border-radius: 1em;
+  margin: 0 1rem 0 -2rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 1rem;
   content: "+";
   text-align: center;
-  line-height: 0.9em;
-}
-.tox .tinymce-merge-fields :checked ~ label.tree_label:before {
-  content: "–";
+  line-height: 0.9rem;
 }
 .tox .tinymce-merge-fields label.tree_label:after {
   border-bottom: 0;
 }
+.tox .tinymce-merge-fields :checked ~ label.tree_label:before {
+  content: "–";
+}
 .tox .tinymce-merge-fields :checked ~ label.tree_label:after {
-  border-radius: 0 0.3em 0 0;
+  border-radius: 0 0.3rem 0 0;
   border-top: 1px solid #777;
   border-right: 1px solid #777;
   border-bottom: 0;
   border-left: 0;
   bottom: 0;
-  top: 0.5em;
+  top: 0.5rem;
   height: auto;
 }
 .tox .tinymce-merge-fields .tooltip {
