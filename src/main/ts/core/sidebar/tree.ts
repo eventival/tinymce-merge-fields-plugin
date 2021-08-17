@@ -6,7 +6,7 @@ function help(text?: string): string {
   if (!text) {
     return "";
   }
-  return `<span class="info tooltip">
+  return `<span class="info tooltip">           
         <img src="data:image/svg+xml;base64,${btoa(
           info_icon
         )}" alt="info" width="24px" height="24px" />
@@ -23,14 +23,14 @@ function branch(limb: MergeField, level: number, isSearching: boolean): string {
       "tinymce-merge-fields",
       limb.name,
       level
-    )}" class="tree_label">${limb.name}</label>
+    )}" class="tree__label cursor-pointer">${limb.name}</label>
     ${buildTree(limb.items, level++, isSearching)}
   `;
 }
 
 function twig(limb: MergeField): string {
   return `<button
-          class="tree_label merge-field-button"
+          class="tree__label cursor-pointer merge-field-button"
           data-value="${encodeURI(limb.value)}"
           data-help="${encodeURI(limb.help)}"
           data-name="${encodeURI(limb.name)}">
@@ -50,7 +50,7 @@ function trunk(
 ): string {
   return tree
     .map((limb) => {
-      return `<li>${
+      return `<li class="tree__item">${
         isBranch(limb) ? branch(limb, level, isSearching) : twig(limb)
       }${limb.help ? help(limb.help) : ""}</li>`;
     })

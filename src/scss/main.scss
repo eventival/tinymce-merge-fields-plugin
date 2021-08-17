@@ -1,0 +1,210 @@
+.tox {
+  font-size: 11pt;
+
+  .tinymce-merge-fields {
+    overflow-y: scroll;
+    border-left: solid 1px #ccc;
+    padding: 5px;
+    width: 300px;
+
+    ul {
+      list-style: none;
+    }
+
+    .search {
+      color: #333;
+      width: 100%;
+      box-sizing: border-box;
+      letter-spacing: 1px;
+      border: 1px solid #ccc;
+      padding: 7px 14px 9px;
+      transition: 0.4s;
+    }
+
+    .tree {
+      margin: 1rem;
+
+      ul {
+        margin: 0;
+      }
+
+      ul .tree__item {
+        padding: 1rem 0 0 1rem;
+
+        &:before {
+          height: 3.75rem;
+        }
+      }
+
+      input {
+        position: absolute;
+        clip: rect(0, 0, 0, 0);
+
+        &:checked ~ ul {
+          display: block;
+        }
+
+        ~ ul {
+          display: none;
+        }
+      }
+
+      .tree__item {
+        line-height: 1.2;
+        position: relative;
+        padding: 0 0 1rem 1rem;
+        vertical-align: middle;
+
+        &::before {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: -0.5rem;
+          display: block;
+          width: 0;
+          height: auto;
+          border-left: 1px solid #777;
+          content: "";
+        }
+
+        &:last-child::before {
+          height: 1rem;
+          bottom: auto;
+        }
+
+        &:first-child::before {
+          top: 0.125rem;
+        }
+
+        .merge-field-button::after {
+          top: -0.25rem;
+          height: 0.75rem;
+        }
+      }
+
+      > .tree__item:last-child {
+        padding-bottom: 0;
+
+        &::before {
+          display: none;
+        }
+      }
+
+      &__label {
+        position: relative;
+        display: inline-block;
+        background: #fff;
+
+        &::after {
+          position: absolute;
+          top: 0;
+          left: -1.5rem;
+          display: block;
+          height: 0.5rem;
+          width: 1rem;
+          border-bottom: 1px solid #777;
+          border-left: 1px solid #777;
+          border-radius: 0 0 0 0.3rem;
+          content: "";
+        }
+      }
+    }
+
+    label.tree__label {
+      &:hover {
+        color: #666;
+      }
+
+      &::before {
+        background: #000;
+        color: #fff;
+        position: relative;
+        z-index: 1;
+        float: left;
+        margin: 0 1rem 0 -2rem;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 1rem;
+        content: "+";
+        text-align: center;
+        line-height: 0.9rem;
+      }
+
+      &::after {
+        border-bottom: 0;
+      }
+    }
+
+    :checked ~ label.tree__label::before {
+      content: "–";
+    }
+
+    :checked ~ label.tree__label::after {
+      border-radius: 0 0.3rem 0 0;
+      border-top: 1px solid #777;
+      border-right: 1px solid #777;
+      border-bottom: 0;
+      border-left: 0;
+      bottom: 0;
+      top: 0.5rem;
+      height: 1rem;
+    }
+
+    .tooltip {
+      position: relative;
+      display: inline-block;
+
+      .tooltip-text {
+        visibility: hidden;
+        width: 150px;
+        background-color: #000;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 0.875rem 1.25rem;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -75px;
+        opacity: 0;
+        transition: all 0.35s ease-in-out;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          margin-left: -5px;
+          border-width: 5px;
+          border-style: solid;
+          border-color: #000 transparent transparent transparent;
+        }
+      }
+
+      &:hover .tooltip-text {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+
+  .cursor-pointer {
+    cursor: pointer;
+  }
+}
+
+.merge-value {
+  cursor: default;
+  background-color: #65b9dd;
+  color: #fff;
+  padding: 2px 8px;
+  margin: 0 0.125rem;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.tox.tinymce-merge-fields.tree.tree__item.merge-field-button::after {
+  top: -0.25rem;
+  height: 0.75rem;
+}

@@ -1,7 +1,8 @@
-const { CheckerPlugin } = require("awesome-typescript-loader");
+const {CheckerPlugin} = require("awesome-typescript-loader");
 const LiveReloadPlugin = require("webpack-livereload-plugin");
 const path = require("path");
 const swag = require("@ephox/swag");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = (grunt) => {
   const packageData = grunt.file.readJSON("package.json");
@@ -101,7 +102,18 @@ module.exports = (grunt) => {
         },
       },
     },
-
+    sass: {
+      dist: {
+        files: [
+          {
+            expanded: true,
+            src: ['src/scss/*.scss'],
+            dest: "dist/tinymce-merge-fields-plugin/style.css",
+            ext: ".css"
+          }
+        ]
+      }
+    },
     copy: {
       css: {
         files: [
@@ -124,7 +136,7 @@ module.exports = (grunt) => {
         devtool: "source-map",
 
         resolve: {
-          extensions: [".ts", ".js"],
+          extensions: [".ts", ".js", ".scss"],
         },
 
         module: {
@@ -146,10 +158,20 @@ module.exports = (grunt) => {
                 },
               ],
             },
+            {
+              test: /\.(s(a|c)ss)$/,
+              use: [MiniCssExtractPlugin.loader,'css-loader',{
+                loader: "sass-loader",
+                options: {
+                  sourceMap: true,
+                  implementation: require.resolve("sass"),
+                },
+              }]
+            }
           ],
         },
 
-        plugins: [new LiveReloadPlugin(), new CheckerPlugin()],
+        plugins: [new LiveReloadPlugin(), new CheckerPlugin(), new MiniCssExtractPlugin()],
 
         output: {
           filename: path.basename(jsDemoDestFile),
@@ -161,6 +183,7 @@ module.exports = (grunt) => {
 
   require("load-grunt-tasks")(grunt);
   grunt.loadNpmTasks("@ephox/swag");
+  grunt.loadNpmTasks('grunt-contrib-sass');
 
   grunt.registerTask("version", "Creates a version file", () => {
     grunt.file.write(
@@ -177,7 +200,7 @@ module.exports = (grunt) => {
     "uglify",
     "concat",
     "copy",
-    "version",
-    'webpack-dev-server'
+    "sass",
+    "version"
   ]);
 };
