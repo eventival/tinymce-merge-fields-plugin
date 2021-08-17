@@ -26,6 +26,9 @@
 .tox .tinymce-merge-fields .tree ul li {
   padding: 1rem 0 0 1rem;
 }
+.tox .tinymce-merge-fields .tree ul li:before {
+  height: 3.75rem;
+}
 .tox .tinymce-merge-fields .tree input {
   position: absolute;
   clip: rect(0, 0, 0, 0);
@@ -44,17 +47,21 @@
 }
 .tox .tinymce-merge-fields .tree li:before {
   position: absolute;
-  top: 0.125rem;
+  top: 0;
   bottom: 0;
   left: -0.5rem;
   display: block;
   width: 0;
+  height: auto;
   border-left: 1px solid #777;
   content: "";
 }
 .tox .tinymce-merge-fields .tree li:last-child:before {
   height: 1rem;
   bottom: auto;
+}
+.tox .tinymce-merge-fields .tree li:first-child:before {
+  top: 0.125rem;
 }
 .tox .tinymce-merge-fields .tree > li:last-child {
   padding-bottom: 0;
@@ -116,7 +123,7 @@
   border-left: 0;
   bottom: 0;
   top: 0.5rem;
-  height: auto;
+  height: 1rem;
 }
 .tox .tinymce-merge-fields .tooltip {
   position: relative;
