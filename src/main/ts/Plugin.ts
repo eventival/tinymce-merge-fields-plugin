@@ -9,10 +9,7 @@ declare const tinymce: TinyMCE;
 
 const setup = (editor: Editor): void => {
   editor.ui.registry.addIcon("merge-field", MERGE_FIELD_ICON);
-  editor.ui.registry.addSidebar(
-    "tinymce-merge-fields-plugin-sidebar",
-    sideBar(editor)
-  );
+  editor.ui.registry.addSidebar("merge-fields-sidebar", sideBar(editor));
   editor.on("init", () => {
     registerFormatter(editor);
     registerCommand(editor);
@@ -21,5 +18,5 @@ const setup = (editor: Editor): void => {
 };
 
 export default (): void => {
-  tinymce.PluginManager.add("tinymce-merge-fields-plugin", setup);
+  tinymce.PluginManager.add("merge-fields", setup);
 };

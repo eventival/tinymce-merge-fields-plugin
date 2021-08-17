@@ -13,6 +13,7 @@ module.exports = (grunt) => {
   const scratchPluginPath = "scratch/compiled/plugin.js";
   const scratchPluginMinPath = "scratch/compiled/plugin.min.js";
   const tsDemoSourceFile = path.resolve("src/demo/ts/Demo.ts");
+  const defaultCssPath = path.resolve("src/demo/html/sidebar.css");
   const jsDemoDestFile = path.resolve("scratch/compiled/demo.js");
 
   grunt.initConfig({
@@ -90,11 +91,11 @@ module.exports = (grunt) => {
         },
         // scratchPluginMinPath is used twice on purpose, all outputs will be minified for premium plugins
         files: {
-          "dist/tinymce-merge-fields-plugin/plugin.js": [
+          "dist/merge-fields/plugin.js": [
             "src/text/license-header.js",
             scratchPluginMinPath,
           ],
-          "dist/tinymce-merge-fields-plugin/plugin.min.js": [
+          "dist/merge-fields/plugin.min.js": [
             "src/text/license-header.js",
             scratchPluginMinPath,
           ],
@@ -107,9 +108,14 @@ module.exports = (grunt) => {
         files: [
           {
             src: ["CHANGELOG.txt", "LICENSE.txt"],
-            dest: "dist/tinymce-merge-fields-plugin",
+            dest: "dist/merge-fields",
             expand: true,
           },
+          {
+            src: [defaultCssPath],
+            dest: "dist/merge-fields/style.css",
+            flatten: true
+          }
         ],
       },
     },
@@ -164,7 +170,7 @@ module.exports = (grunt) => {
 
   grunt.registerTask("version", "Creates a version file", () => {
     grunt.file.write(
-      "dist/tinymce-merge-fields-plugin/version.txt",
+      "dist/merge-fields/version.txt",
       BUILD_VERSION
     );
   });
@@ -178,6 +184,5 @@ module.exports = (grunt) => {
     "concat",
     "copy",
     "version",
-    'webpack-dev-server'
   ]);
 };

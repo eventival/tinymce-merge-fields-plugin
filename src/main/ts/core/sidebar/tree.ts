@@ -1,6 +1,7 @@
 import { MergeField } from "../../api/settings";
 import buildID from "../../util/build-id";
 import { info_icon } from "./icons";
+import { Editor } from "tinymce";
 
 function help(text?: string): string {
   if (!text) {
@@ -14,22 +15,29 @@ function help(text?: string): string {
   </span>`;
 }
 
-function branch(limb: MergeField, level: number, isSearching: boolean): string {
+function branch(
+  editor: Editor,
+  limb: MergeField,
+  level: number,
+  isSearching: boolean
+): string {
   return `
     <input type="checkbox" ${
       isSearching ? `checked="checked"` : ""
-    }  id="${buildID("tinymce-merge-fields", limb.name, level)}" />
+    }  id="${buildID("tinymce-merge-fields", editor.id, limb.name, level)}" />
     <label for="${buildID(
       "tinymce-merge-fields",
+      editor.id,
       limb.name,
       level
     )}" class="tree_label">${limb.name}</label>
-    ${buildTree(limb.items, level++, isSearching)}
+    ${buildTree(editor, limb.items, level++, isSearching)}
   `;
 }
 
 function twig(limb: MergeField): string {
   return `<button
+          type="button"
           class="tree_label merge-field-button"
           data-value="${encodeURI(limb.value)}"
           data-help="${encodeURI(limb.help)}"
@@ -44,6 +52,7 @@ function isBranch(limb: MergeField): boolean {
 }
 
 function trunk(
+  editor: Editor,
   tree: MergeField[],
   level: number,
   isSearching: boolean
@@ -51,20 +60,21 @@ function trunk(
   return tree
     .map((limb) => {
       return `<li>${
-        isBranch(limb) ? branch(limb, level, isSearching) : twig(limb)
+        isBranch(limb) ? branch(editor, limb, level, isSearching) : twig(limb)
       }${limb.help ? help(limb.help) : ""}</li>`;
     })
     .join("");
 }
 
 const buildTree = (
+  editor: Editor,
   tree: MergeField[],
   level = 0,
   isSearching = false
 ): string => {
   return `
     <ul ${level === 0 && 'class="tree"'}>
-        ${trunk(tree, level, isSearching)}
+        ${trunk(editor, tree, level, isSearching)}
     </ul>
   `;
 };

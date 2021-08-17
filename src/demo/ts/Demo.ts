@@ -60,8 +60,8 @@ const sampleTree = [
 
 tinymce.init({
   selector: "textarea.tinymce",
-  plugins: "code tinymce-merge-fields-plugin",
-  toolbar: "tinymce-merge-fields-plugin-sidebar",
+  plugins: "code merge-fields",
+  toolbar: "merge-fields-sidebar",
   font_css: "sidebar.css",
   merge_fields: sampleTree,
   height: 500,

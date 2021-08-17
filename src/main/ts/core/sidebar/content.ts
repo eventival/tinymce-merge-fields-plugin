@@ -10,9 +10,9 @@ const searchField = () => {
 
 const content = (api: Ui.Sidebar.SidebarInstanceApi, editor: Editor): void => {
   api.element().innerHTML = `
-    <div class="tinymce-merge-fields">
+    <div class="tinymce-merge-fields" id="tinymce-merge-fields-${editor.id}">
         ${searchField()}
-        ${buildTree(getMergeFields(editor))}
+        ${buildTree(editor, getMergeFields(editor))}
     </div>
   `;
 };

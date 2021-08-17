@@ -5,15 +5,15 @@ import filterTree from "../../util/filter-tree";
 import { INSERT_MERGE_FIELD_COMMAND } from "./command";
 
 function sidebarParentElement(editor: Editor) {
-  return editor.$.find(".tinymce-merge-fields")[0];
+  return editor.$.find(`#tinymce-merge-fields-${editor.id}`)[0];
 }
 
 function searchFieldElement(editor: Editor) {
-  return editor.$.find(".tinymce-merge-fields .search")[0];
+  return editor.$.find(`#tinymce-merge-fields-${editor.id} .search`)[0];
 }
 
 function treeElement(editor: Editor) {
-  return editor.$.find(".tinymce-merge-fields .tree")[0];
+  return editor.$.find(`#tinymce-merge-fields-${editor.id} .tree`)[0];
 }
 
 function removeTree(editor: Editor) {
@@ -31,13 +31,13 @@ function onSearch(editor: Editor) {
     if (value === "" || value == null) {
       mergeFieldsParent.insertAdjacentHTML(
         "beforeend",
-        buildTree(getMergeFields(editor))
+        buildTree(editor, getMergeFields(editor))
       );
       return;
     }
     mergeFieldsParent.insertAdjacentHTML(
       "beforeend",
-      buildTree(filterTree(getMergeFields(editor), value), 0, true)
+      buildTree(editor, filterTree(getMergeFields(editor), value), 0, true)
     );
   };
 }
@@ -45,7 +45,7 @@ function onSearch(editor: Editor) {
 function bindMergeFieldEvents(editor: Editor) {
   sidebarParentElement(editor).addEventListener("click", (event) => {
     if (
-      event.target.type === "submit" &&
+      event.target.type === "button" &&
       event.target.classList.contains("merge-field-button")
     ) {
       editor.execCommand(INSERT_MERGE_FIELD_COMMAND, false, {
