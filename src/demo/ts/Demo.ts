@@ -1,6 +1,7 @@
 import { TinyMCE } from "tinymce";
 
 import Plugin from "../../main/ts/Plugin";
+import "../../scss/main.scss";
 
 declare let tinymce: TinyMCE;
 
@@ -62,7 +63,7 @@ tinymce.init({
   selector: "textarea.tinymce",
   plugins: "code tinymce-merge-fields-plugin",
   toolbar: "tinymce-merge-fields-plugin-sidebar",
-  font_css: "sidebar.css",
+  font_css: "/scratch/compiled/main.css",
   merge_fields: sampleTree,
   height: 500,
 });

@@ -73,16 +73,16 @@
         }
 
         &:first-child::before {
-          top: .125rem;
+          top: 0.125rem;
         }
 
         .merge-field-button::after {
-          top: -.25rem;
-          height: .75rem;
+          top: -0.25rem;
+          height: 0.75rem;
         }
       }
 
-      >.tree__item:last-child {
+      > .tree__item:last-child {
         padding-bottom: 0;
 
         &::before {
@@ -156,20 +156,19 @@
 
       .tooltip-text {
         visibility: hidden;
-        width: 120px;
-        background-color: #555;
+        width: 150px;
+        background-color: #000;
         color: #fff;
         text-align: center;
         border-radius: 6px;
-        padding: 5px 0;
+        padding: 0.875rem 1.25rem;
         position: absolute;
         z-index: 1;
         bottom: 125%;
         left: 50%;
-        margin-left: -60px;
+        margin-left: -75px;
         opacity: 0;
-        transition: opacity 0.3s;
-        font-size: 12px;
+        transition: all 0.35s ease-in-out;
 
         &::after {
           content: "";
@@ -179,7 +178,7 @@
           margin-left: -5px;
           border-width: 5px;
           border-style: solid;
-          border-color: #555 transparent transparent transparent;
+          border-color: #000 transparent transparent transparent;
         }
       }
 
@@ -190,7 +189,9 @@
     }
   }
 
-  .cursor-pointer { cursor: pointer; }
+  .cursor-pointer {
+    cursor: pointer;
+  }
 }
 
 .merge-value {
@@ -198,7 +199,7 @@
   background-color: #65b9dd;
   color: #fff;
   padding: 2px 8px;
-  margin: 0 .125rem;
+  margin: 0 0.125rem;
   border-radius: 3px;
   display: inline-block;
 }
