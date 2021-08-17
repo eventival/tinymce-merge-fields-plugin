@@ -44,7 +44,7 @@
 }
 .tox .tinymce-merge-fields .tree li:before {
   position: absolute;
-  top: 0;
+  top: 0.125rem;
   bottom: 0;
   left: -0.5rem;
   display: block;
@@ -62,12 +62,12 @@
 .tox .tinymce-merge-fields .tree > li:last-child:before {
   display: none;
 }
-.tox .tinymce-merge-fields .tree_label {
+.tox .tinymce-merge-fields .tree__label {
   position: relative;
   display: inline-block;
   background: #fff;
 }
-.tox .tinymce-merge-fields .tree_label::after {
+.tox .tinymce-merge-fields .tree__label::after {
   position: absolute;
   top: 0;
   left: -1.5rem;
@@ -79,16 +79,16 @@
   border-radius: 0 0 0 0.3rem;
   content: "";
 }
-.tox .tinymce-merge-fields button.tree_label {
+.tox .tinymce-merge-fields button.tree__label {
   cursor: pointer;
 }
-.tox .tinymce-merge-fields label.tree_label {
+.tox .tinymce-merge-fields label.tree__label {
   cursor: pointer;
 }
-.tox .tinymce-merge-fields label.tree_label:hover {
+.tox .tinymce-merge-fields label.tree__label:hover {
   color: #666;
 }
-.tox .tinymce-merge-fields label.tree_label:before {
+.tox .tinymce-merge-fields label.tree__label:before {
   background: #000;
   color: #fff;
   position: relative;
@@ -102,13 +102,13 @@
   text-align: center;
   line-height: 0.9rem;
 }
-.tox .tinymce-merge-fields label.tree_label:after {
+.tox .tinymce-merge-fields label.tree__label:after {
   border-bottom: 0;
 }
-.tox .tinymce-merge-fields :checked ~ label.tree_label:before {
+.tox .tinymce-merge-fields :checked ~ label.tree__label:before {
   content: "–";
 }
-.tox .tinymce-merge-fields :checked ~ label.tree_label:after {
+.tox .tinymce-merge-fields :checked ~ label.tree__label:after {
   border-radius: 0 0.3rem 0 0;
   border-top: 1px solid #777;
   border-right: 1px solid #777;
@@ -161,20 +161,4 @@
   padding: 2px 8px;
   border-radius: 3px;
   display: inline-block;
-}
-
-.m-0 {
-  margin: 0;
-}
-
-.m-1 {
-  margin: 1rem;
-}
-
-.p-0 {
-  padding: 0;
-}
-
-.p-1 {
-  padding: 1rem;
 }

@@ -23,14 +23,14 @@ function branch(limb: MergeField, level: number, isSearching: boolean): string {
       "tinymce-merge-fields",
       limb.name,
       level
-    )}" class="tree_label">${limb.name}</label>
+    )}" class="tree__label">${limb.name}</label>
     ${buildTree(limb.items, level++, isSearching)}
   `;
 }
 
 function twig(limb: MergeField): string {
   return `<button
-          class="tree_label merge-field-button"
+          class="tree__label merge-field-button"
           data-value="${encodeURI(limb.value)}"
           data-help="${encodeURI(limb.help)}"
           data-name="${encodeURI(limb.name)}">
