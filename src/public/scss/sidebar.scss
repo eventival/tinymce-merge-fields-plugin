@@ -67,11 +67,6 @@
           content: "";
         }
 
-        &__label:last-child::after {
-          top: -.25rem;
-          height: .75rem;
-        }
-
         &:last-child::before {
           height: 1rem;
           bottom: auto;
