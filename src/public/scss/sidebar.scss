@@ -1,4 +1,6 @@
 .tox {
+  font-size: 11pt;
+
   .tinymce-merge-fields {
     overflow-y: scroll;
     border-left: solid 1px #ccc;
@@ -26,7 +28,7 @@
         margin: 0;
       }
 
-      ul li {
+      ul .tree__item {
         padding: 1rem 0 0 1rem;
 
         &:before {
@@ -47,13 +49,13 @@
         }
       }
 
-      li {
+      .tree__item {
         line-height: 1.2;
         position: relative;
         padding: 0 0 1rem 1rem;
         vertical-align: middle;
 
-        &:before {
+        &::before {
           position: absolute;
           top: 0;
           bottom: 0;
@@ -70,27 +72,25 @@
           height: .75rem;
         }
 
-        &:last-child {
-          .tree__label:after {
-            top: -.25rem;
-            height: .75rem;
-          }
-
-          &:before {
-            height: 1rem;
-            bottom: auto;
-          }
+        &:last-child::before {
+          height: 1rem;
+          bottom: auto;
         }
 
-        &:first-child:before {
+        &:first-child::before {
           top: .125rem;
+        }
+
+        .merge-field-button::after {
+          top: -.25rem;
+          height: .75rem;
         }
       }
 
-      > li:last-child {
+      >.tree__item:last-child {
         padding-bottom: 0;
 
-        &:before {
+        &::before {
           display: none;
         }
       }
@@ -120,7 +120,7 @@
         color: #666;
       }
 
-      &:before {
+      &::before {
         background: #000;
         color: #fff;
         position: relative;
@@ -135,16 +135,16 @@
         line-height: 0.9rem;
       }
 
-      &:after {
+      &::after {
         border-bottom: 0;
       }
     }
 
-    :checked ~ label.tree__label:before {
+    :checked ~ label.tree__label::before {
       content: "–";
     }
 
-    :checked ~ label.tree__label:after {
+    :checked ~ label.tree__label::after {
       border-radius: 0 0.3rem 0 0;
       border-top: 1px solid #777;
       border-right: 1px solid #777;
@@ -203,6 +203,12 @@
   background-color: #65b9dd;
   color: #fff;
   padding: 2px 8px;
+  margin: 0 .125rem;
   border-radius: 3px;
   display: inline-block;
+}
+
+.tox.tinymce-merge-fields.tree.tree__item.merge-field-button::after {
+  top: -0.25rem;
+  height: 0.75rem;
 }

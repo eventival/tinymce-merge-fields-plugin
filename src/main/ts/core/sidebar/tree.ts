@@ -50,7 +50,7 @@ function trunk(
 ): string {
   return tree
     .map((limb) => {
-      return `<li>${
+      return `<li class="tree__item">${
         isBranch(limb) ? branch(limb, level, isSearching) : twig(limb)
       }${limb.help ? help(limb.help) : ""}</li>`;
     })

@@ -1,4 +1,7 @@
 @charset "UTF-8";
+.tox {
+  font-size: 11pt;
+}
 .tox .tinymce-merge-fields {
   overflow-y: scroll;
   border-left: solid 1px #ccc;
@@ -23,10 +26,10 @@
 .tox .tinymce-merge-fields .tree ul {
   margin: 0;
 }
-.tox .tinymce-merge-fields .tree ul li {
+.tox .tinymce-merge-fields .tree ul .tree__item {
   padding: 1rem 0 0 1rem;
 }
-.tox .tinymce-merge-fields .tree ul li:before {
+.tox .tinymce-merge-fields .tree ul .tree__item:before {
   height: 3.75rem;
 }
 .tox .tinymce-merge-fields .tree input {
@@ -39,13 +42,13 @@
 .tox .tinymce-merge-fields .tree input ~ ul {
   display: none;
 }
-.tox .tinymce-merge-fields .tree li {
+.tox .tinymce-merge-fields .tree .tree__item {
   line-height: 1.2;
   position: relative;
   padding: 0 0 1rem 1rem;
   vertical-align: middle;
 }
-.tox .tinymce-merge-fields .tree li:before {
+.tox .tinymce-merge-fields .tree .tree__item::before {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -56,25 +59,25 @@
   border-left: 1px solid #777;
   content: "";
 }
-.tox .tinymce-merge-fields .tree li__label:last-child::after {
+.tox .tinymce-merge-fields .tree .tree__item__label:last-child::after {
   top: -0.25rem;
   height: 0.75rem;
 }
-.tox .tinymce-merge-fields .tree li:last-child .tree__label:after {
-  top: -0.25rem;
-  height: 0.75rem;
-}
-.tox .tinymce-merge-fields .tree li:last-child:before {
+.tox .tinymce-merge-fields .tree .tree__item:last-child::before {
   height: 1rem;
   bottom: auto;
 }
-.tox .tinymce-merge-fields .tree li:first-child:before {
+.tox .tinymce-merge-fields .tree .tree__item:first-child::before {
   top: 0.125rem;
 }
-.tox .tinymce-merge-fields .tree > li:last-child {
+.tox .tinymce-merge-fields .tree .tree__item .merge-field-button::after {
+  top: -0.25rem;
+  height: 0.75rem;
+}
+.tox .tinymce-merge-fields .tree > .tree__item:last-child {
   padding-bottom: 0;
 }
-.tox .tinymce-merge-fields .tree > li:last-child:before {
+.tox .tinymce-merge-fields .tree > .tree__item:last-child::before {
   display: none;
 }
 .tox .tinymce-merge-fields .tree__label {
@@ -97,7 +100,7 @@
 .tox .tinymce-merge-fields label.tree__label:hover {
   color: #666;
 }
-.tox .tinymce-merge-fields label.tree__label:before {
+.tox .tinymce-merge-fields label.tree__label::before {
   background: #000;
   color: #fff;
   position: relative;
@@ -111,13 +114,13 @@
   text-align: center;
   line-height: 0.9rem;
 }
-.tox .tinymce-merge-fields label.tree__label:after {
+.tox .tinymce-merge-fields label.tree__label::after {
   border-bottom: 0;
 }
-.tox .tinymce-merge-fields :checked ~ label.tree__label:before {
+.tox .tinymce-merge-fields :checked ~ label.tree__label::before {
   content: "–";
 }
-.tox .tinymce-merge-fields :checked ~ label.tree__label:after {
+.tox .tinymce-merge-fields :checked ~ label.tree__label::after {
   border-radius: 0 0.3rem 0 0;
   border-top: 1px solid #777;
   border-right: 1px solid #777;
@@ -171,6 +174,12 @@
   background-color: #65b9dd;
   color: #fff;
   padding: 2px 8px;
+  margin: 0 0.125rem;
   border-radius: 3px;
   display: inline-block;
+}
+
+.tox.tinymce-merge-fields.tree.tree__item.merge-field-button::after {
+  top: -0.25rem;
+  height: 0.75rem;
 }
