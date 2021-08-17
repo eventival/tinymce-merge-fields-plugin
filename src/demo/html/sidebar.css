@@ -86,12 +86,6 @@
   border-radius: 0 0 0 0.3rem;
   content: "";
 }
-.tox .tinymce-merge-fields button.tree__label {
-  cursor: pointer;
-}
-.tox .tinymce-merge-fields label.tree__label {
-  cursor: pointer;
-}
 .tox .tinymce-merge-fields label.tree__label:hover {
   color: #666;
 }
@@ -159,6 +153,9 @@
 .tox .tinymce-merge-fields .tooltip:hover .tooltip-text {
   visibility: visible;
   opacity: 1;
+}
+.tox .cursor-pointer {
+  cursor: pointer;
 }
 
 .merge-value {
