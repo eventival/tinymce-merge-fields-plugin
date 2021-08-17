@@ -56,6 +56,14 @@
   border-left: 1px solid #777;
   content: "";
 }
+.tox .tinymce-merge-fields .tree li__label:last-child::after {
+  top: -0.25rem;
+  height: 0.75rem;
+}
+.tox .tinymce-merge-fields .tree li:last-child .tree__label:after {
+  top: -0.25rem;
+  height: 0.75rem;
+}
 .tox .tinymce-merge-fields .tree li:last-child:before {
   height: 1rem;
   bottom: auto;

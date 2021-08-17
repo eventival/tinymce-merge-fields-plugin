@@ -65,9 +65,21 @@
           content: "";
         }
 
-        &:last-child:before {
-          height: 1rem;
-          bottom: auto;
+        &__label:last-child::after {
+          top: -.25rem;
+          height: .75rem;
+        }
+
+        &:last-child {
+          .tree__label:after {
+            top: -.25rem;
+            height: .75rem;
+          }
+
+          &:before {
+            height: 1rem;
+            bottom: auto;
+          }
         }
 
         &:first-child:before {
