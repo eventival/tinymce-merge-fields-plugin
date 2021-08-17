@@ -30,7 +30,7 @@ function branch(
       editor.id,
       limb.name,
       level
-    )}" class="tree_label">${limb.name}</label>
+    )}" class="tree__label cursor-pointer">${limb.name}</label>
     ${buildTree(editor, limb.items, level++, isSearching)}
   `;
 }
@@ -38,7 +38,7 @@ function branch(
 function twig(limb: MergeField): string {
   return `<button
           type="button"
-          class="tree_label merge-field-button"
+          class="tree__label cursor-pointer merge-field-button"
           data-value="${encodeURI(limb.value)}"
           data-help="${encodeURI(limb.help)}"
           data-name="${encodeURI(limb.name)}">
@@ -59,7 +59,7 @@ function trunk(
 ): string {
   return tree
     .map((limb) => {
-      return `<li>${
+      return `<li class="tree__item">${
         isBranch(limb) ? branch(editor, limb, level, isSearching) : twig(limb)
       }${limb.help ? help(limb.help) : ""}</li>`;
     })
