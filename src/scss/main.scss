@@ -30,10 +30,6 @@
 
       ul .tree__item {
         padding: 1rem 0 0 1rem;
-
-        &:before {
-          height: 3.75rem;
-        }
       }
 
       input {
@@ -62,7 +58,7 @@
           left: -0.5rem;
           display: block;
           width: 0;
-          height: auto;
+          height: 100%;
           border-left: 1px solid #777;
           content: "";
         }
@@ -84,10 +80,6 @@
 
       > .tree__item:last-child {
         padding-bottom: 0;
-
-        &::before {
-          display: none;
-        }
       }
 
       &__label {
@@ -204,7 +196,8 @@
   display: inline-block;
 }
 
-.tox.tinymce-merge-fields.tree.tree__item.merge-field-button::after {
-  top: -0.25rem;
-  height: 0.75rem;
+.tox.tree.tree__item:last-child {
+  &::before {
+    height: 0;
+  }
 }
