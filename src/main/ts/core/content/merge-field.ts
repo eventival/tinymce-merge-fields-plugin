@@ -1,9 +1,20 @@
-import { MergeField } from "../../api/settings";
+import { getMergeFields, getSeparator, MergeField } from "../../api/settings";
+import { Editor } from "tinymce";
 
-const buildMergeField = (field: MergeField): string => {
+const getValue = (editor: Editor, field: MergeField): string => {
+  const separator = getSeparator(editor);
+  if (separator) {
+    return getMergeFields(editor).findPath(field.value).join(` ${separator} `);
+  }
+  return field.name;
+};
+
+const buildMergeField = (editor: Editor, field: MergeField): string => {
   return `<span class="merge-value" data-original-field-value="${encodeURI(
     field.value
-  )}" contenteditable="false">${field.name}</span>`;
+  )}" contenteditable="false">
+${getValue(editor, field)}
+</span>`;
 };
 
 export default buildMergeField;
