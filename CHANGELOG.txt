@@ -1,2 +1,10 @@
 1.0.0
   * Initial release.
+  * Tree sidebar for merge fields
+  * Search for merge fields in sidebar
+  * Replace merge fields like `{{user.lastName}}` with tree path or name to make it more readable
+  * Merge fields are not editable
+  * Delete merge field with backspace
+  * Auto replace when typing a merge field
+  * Custom merge field prefix and suffix
+  * Configurable path for merge field in editor

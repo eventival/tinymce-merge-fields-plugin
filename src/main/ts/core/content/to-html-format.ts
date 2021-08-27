@@ -7,7 +7,6 @@ import {
   getSuffix,
   MergeField,
 } from "../../api/settings";
-import searchTree from "../../util/search-tree";
 import buildMergeField from "./merge-field";
 
 declare const tinymce: TinyMCE;
@@ -17,7 +16,7 @@ const mergeFieldHtml = (editor: Editor, field: MergeField) => {
     value: field.name,
     cleanValue: field.value,
   });
-  return buildMergeField(field);
+  return buildMergeField(editor, field);
 };
 
 const getMatchedFields = (editor: Editor, value: string): string[] => {
@@ -32,7 +31,7 @@ const getMatchedFields = (editor: Editor, value: string): string[] => {
 };
 
 const stringToHtml = (editor: Editor): void => {
-  const mergeFields = getMergeFields(editor);
+  const tree = getMergeFields(editor);
   let nodes = [];
 
   tinymce.walk(
@@ -53,11 +52,10 @@ const stringToHtml = (editor: Editor): void => {
   nodes.forEach((node) => {
     let replacedText = node.textContent;
     getMatchedFields(editor, node.textContent).forEach((field) => {
-      const mergeField: MergeField = searchTree(mergeFields, field);
-      if (mergeField) {
+      if (tree.valueExists(field)) {
         replacedText = replacedText.replace(
           field,
-          mergeFieldHtml(editor, mergeField)
+          mergeFieldHtml(editor, tree.findValue(field))
         );
       }
     });

@@ -29,6 +29,14 @@ tinymce.init({
   ],
 });
 ```
+## Options
+| Option | description | default |
+---|---|---|
+| merge_fields | Your merge field tree | [] |
+| merge_field_prefix | Your merge field prefix | `{{`
+| merge_field_suffix | Your merge field suffix | `}}`
+| merge_field_separator | Merge field path separator. Set to `null` if you don't want to show the path in editor | `>`
+
 ## Contributing
 1. Fork it!
 2. Create your feature branch: git checkout -b my-new-feature

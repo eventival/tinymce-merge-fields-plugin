@@ -1,7 +1,6 @@
 import { Editor } from "tinymce";
 import buildTree from "./tree";
 import { getMergeFields } from "../../api/settings";
-import filterTree from "../../util/filter-tree";
 import { INSERT_MERGE_FIELD_COMMAND } from "./command";
 
 function sidebarParentElement(editor: Editor) {
@@ -31,13 +30,20 @@ function onSearch(editor: Editor) {
     if (value === "" || value == null) {
       mergeFieldsParent.insertAdjacentHTML(
         "beforeend",
-        buildTree(editor, getMergeFields(editor))
+        buildTree(editor, getMergeFields(editor).getTree())
       );
       return;
     }
     mergeFieldsParent.insertAdjacentHTML(
       "beforeend",
-      buildTree(editor, filterTree(getMergeFields(editor), value), 0, true)
+      buildTree(
+        editor,
+        getMergeFields(editor).filter(
+          (field) => field.name.toLowerCase().indexOf(value.toLowerCase()) >= 0
+        ),
+        0,
+        true
+      )
     );
   };
 }
