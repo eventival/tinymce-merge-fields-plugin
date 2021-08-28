@@ -24,10 +24,12 @@ jobs:
         uses: thedoctor0/zip-release@master
         with:
           type: 'zip'
-          filename: release-${{ github.ref }}.zip
+          filename: release.zip
           path: 'dist'
           directory: 'dist'
       - name: Create release
+        id: create_release
+        uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -36,7 +38,11 @@ jobs:
           draft: false
           prerelease: false
       - name: Upload Release
-        uses: ncipollo/release-action@v1
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          artifacts: dist/release-${{ github.ref }}.zip
-          token: ${{ secrets.GITHUB_TOKEN }}
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: dist/release.zip
+          asset_name: release.zip
+          asset_content_type: application/zip
