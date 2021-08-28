@@ -1,0 +1,38 @@
+on:
+  push:
+
+jobs:
+  build:
+    name: Create release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+            node-version: '16'
+      - name: Install dependencies
+        run: yarn install
+      - name: Build
+        run: yarn build
+      - name: Archive release
+        uses: thedoctor0/zip-release@master
+        with:
+          type: 'zip'
+          filename: release-${{ github.ref }}.zip
+          path: 'dist'
+          directory: 'dist'
+      - name: Create release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+      - name: Upload Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: dist/release-${{ github.ref }}.zip
+          token: ${{ secrets.GITHUB_TOKEN }}
