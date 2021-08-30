@@ -1,6 +1,6 @@
 {
   "name": "tinymce-merge-fields-plugin",
-  "version": "1.0.0",
+  "version": "1.0.0-beta.1",
   "description": "Tinymce merge fields plugin",
   "scripts": {
     "prepublishOnly": "yarn lint && yarn build",
@@ -11,7 +11,7 @@
     "start": "grunt connect webpack"
   },
   "keywords": [],
-  "author": "Mahmood Bazdar",
+  "author": "Eventival",
   "devDependencies": {
     "@ephox/agar": "^6.0.1",
     "@ephox/bedrock-server": "^11.4.0",
