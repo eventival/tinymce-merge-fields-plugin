@@ -1,8 +1,8 @@
-const {CheckerPlugin} = require("awesome-typescript-loader");
+const { CheckerPlugin } = require("awesome-typescript-loader");
 const LiveReloadPlugin = require("webpack-livereload-plugin");
 const path = require("path");
 const swag = require("@ephox/swag");
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = (grunt) => {
   const packageData = grunt.file.readJSON("package.json");
@@ -37,10 +37,10 @@ module.exports = (grunt) => {
       server: {
         options: {
           port: 8000,
-          hostname: '*',
-          directory: '/src/demo/html',
-        }
-      }
+          hostname: "*",
+          directory: "/src/demo/html",
+        },
+      },
     },
     rollup: {
       options: {
@@ -107,12 +107,12 @@ module.exports = (grunt) => {
         files: [
           {
             expanded: true,
-            src: ['src/scss/*.scss'],
+            src: ["src/main/scss/*.scss"],
             dest: "dist/merge-fields/style.css",
-            ext: ".css"
-          }
-        ]
-      }
+            ext: ".css",
+          },
+        ],
+      },
     },
     copy: {
       css: {
@@ -160,18 +160,26 @@ module.exports = (grunt) => {
             },
             {
               test: /\.(s(a|c)ss)$/,
-              use: [MiniCssExtractPlugin.loader,'css-loader',{
-                loader: "sass-loader",
-                options: {
-                  sourceMap: true,
-                  implementation: require.resolve("sass"),
+              use: [
+                MiniCssExtractPlugin.loader,
+                "css-loader",
+                {
+                  loader: "sass-loader",
+                  options: {
+                    sourceMap: true,
+                    implementation: require.resolve("sass"),
+                  },
                 },
-              }]
-            }
+              ],
+            },
           ],
         },
 
-        plugins: [new LiveReloadPlugin(), new CheckerPlugin(), new MiniCssExtractPlugin()],
+        plugins: [
+          new LiveReloadPlugin(),
+          new CheckerPlugin(),
+          new MiniCssExtractPlugin(),
+        ],
 
         output: {
           filename: path.basename(jsDemoDestFile),
@@ -183,13 +191,10 @@ module.exports = (grunt) => {
 
   require("load-grunt-tasks")(grunt);
   grunt.loadNpmTasks("@ephox/swag");
-  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks("grunt-contrib-sass");
 
   grunt.registerTask("version", "Creates a version file", () => {
-    grunt.file.write(
-      "dist/merge-fields/version.txt",
-      BUILD_VERSION
-    );
+    grunt.file.write("dist/merge-fields/version.txt", BUILD_VERSION);
   });
 
   grunt.registerTask("default", [
@@ -201,6 +206,6 @@ module.exports = (grunt) => {
     "concat",
     "copy",
     "sass",
-    "version"
+    "version",
   ]);
 };

@@ -1,7 +1,7 @@
 import { TinyMCE } from "tinymce";
 
 import Plugin from "../../main/ts/Plugin";
-import "../../scss/main.scss";
+import "../../main/scss/main.scss";
 
 declare let tinymce: TinyMCE;
 
