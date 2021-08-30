@@ -6,6 +6,7 @@
     border-left: solid 1px #ccc;
     padding: 5px;
     width: 300px;
+    overflow-x: hidden;
 
     ul {
       list-style: none;
@@ -30,10 +31,6 @@
 
       ul .tree__item {
         padding: 1rem 0 0 1rem;
-
-        &:before {
-          height: 3.75rem;
-        }
       }
 
       input {
@@ -62,7 +59,7 @@
           left: -0.5rem;
           display: block;
           width: 0;
-          height: auto;
+          height: 100%;
           border-left: 1px solid #777;
           content: "";
         }
@@ -84,10 +81,6 @@
 
       > .tree__item:last-child {
         padding-bottom: 0;
-
-        &::before {
-          display: none;
-        }
       }
 
       &__label {
@@ -199,12 +192,7 @@
   background-color: #65b9dd;
   color: #fff;
   padding: 2px 8px;
-  margin: 0 0.125rem;
+  margin: 0 0.125rem 0.125rem 0.125rem;
   border-radius: 3px;
   display: inline-block;
-}
-
-.tox.tinymce-merge-fields.tree.tree__item.merge-field-button::after {
-  top: -0.25rem;
-  height: 0.75rem;
 }
