@@ -4,6 +4,9 @@ TinyMCE merge fields is a plugin that makes it easier to work with variables in 
 
 With this project we provide a user-friendly implementation of such a feature nicely packaged as a TinyMCE plugin.
 
+## Demo
+[Demo of this plugin](https://eventival.github.io/tinymce-merge-fields-plugin/)
+
 ## Usage
 ```javascript
 tinymce.init({
@@ -52,6 +55,9 @@ Make sure to run the tests before pushing code or submitting any pull request us
 ```shell
 yarn test
 ```
+
+## Inspired by:
+This plugin is inspired by [TinyMce variable](https://github.com/ambassify/tinymce-variable) plugin
 
 ## License
 
