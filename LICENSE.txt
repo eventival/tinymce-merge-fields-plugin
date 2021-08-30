@@ -1,6 +1,6 @@
 The MIT License (MIT)
 
-Copyright (c) 2021 Mahmood Bazdar <mahmood.bazdar@gmail.com> (mahmood.bazdar.me)
+Copyright (c) 2021 Eventival <info@eventival.com> (eventival.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

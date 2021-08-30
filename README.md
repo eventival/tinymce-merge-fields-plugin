@@ -8,8 +8,8 @@ With this project we provide a user-friendly implementation of such a feature ni
 ```javascript
 tinymce.init({
   selector: "textarea.tinymce",
-  plugins: "code tinymce-merge-fields-plugin",
-  toolbar: "tinymce-merge-fields-plugin-sidebar",
+  plugins: "code merge-fields",
+  toolbar: "merge-fields-sidebar",
   font_css: "sidebar.css",
   merge_fields: [
     {
@@ -53,6 +53,6 @@ Make sure to run the tests before pushing code or submitting any pull request us
 yarn test
 ```
 
-##License
+## License
 
 [MIT License](http://opensource.org/licenses/MIT)
