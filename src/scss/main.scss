@@ -19,7 +19,7 @@
       letter-spacing: 1px;
       border: 1px solid #ccc;
       padding: 7px 14px 9px;
-      transition: .4s;
+      transition: 0.4s;
     }
 
     .tree {
@@ -70,12 +70,12 @@
         }
 
         &:first-child::before {
-          top: .125rem;
+          top: 0.125rem;
         }
 
         .merge-field-button::after {
-          top: -.25rem;
-          height: .75rem;
+          top: -0.25rem;
+          height: 0.75rem;
         }
       }
 
@@ -93,11 +93,11 @@
           top: 0;
           left: -1.5rem;
           display: block;
-          height: .5rem;
+          height: 0.5rem;
           width: 1rem;
           border-bottom: 1px solid #777;
           border-left: 1px solid #777;
-          border-radius: 0 0 0 .3rem;
+          border-radius: 0 0 0 0.3rem;
           content: "";
         }
       }
@@ -120,7 +120,7 @@
         border-radius: 1rem;
         content: "+";
         text-align: center;
-        line-height: .9rem;
+        line-height: 0.9rem;
       }
 
       &::after {
@@ -133,13 +133,13 @@
     }
 
     :checked ~ label.tree__label::after {
-      border-radius: 0 .3rem 0 0;
+      border-radius: 0 0.3rem 0 0;
       border-top: 1px solid #777;
       border-right: 1px solid #777;
       border-bottom: 0;
       border-left: 0;
       bottom: 0;
-      top: .5rem;
+      top: 0.5rem;
       height: 1rem;
     }
 
@@ -154,14 +154,14 @@
         color: #fff;
         text-align: center;
         border-radius: 6px;
-        padding: .875rem 1.25rem;
+        padding: 0.875rem 1.25rem;
         position: absolute;
         z-index: 1;
         bottom: 125%;
         left: 50%;
         margin-left: -75px;
         opacity: 0;
-        transition: all .35s ease-in-out;
+        transition: all 0.35s ease-in-out;
 
         &::after {
           content: "";
@@ -192,7 +192,7 @@
   background-color: #65b9dd;
   color: #fff;
   padding: 2px 8px;
-  margin: 0 .125rem .125rem .125rem;
+  margin: 0 0.125rem 0.125rem 0.125rem;
   border-radius: 3px;
   display: inline-block;
 }
