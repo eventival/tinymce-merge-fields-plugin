@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>merge-fields demo page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.9.1/tinymce.min.js"
+      integrity="sha512-wL4f713UTdXFhzoGj57R7cKAwWMp48nzQ4Z/OLy7r8Hrqsa53x3y9Wl1N27hNktcmmHUABHuIX5xQazAl0VMRg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./plugin.min.js" referrerpolicy="origin"></script>
+    <script>
+      const sampleTree = [
+        {
+          name: "User",
+          items: [
+            {
+              value: "{{user.firstName}}",
+              name: "First name",
+              help: "Customer's first name",
+            },
+            {
+              value: "{{user.lastName}}",
+              name: "Last name",
+              help: "Customer's last name",
+            },
+            {
+              name: "Contact",
+              items: [
+                {
+                  value: "{{user.contact.twitter}}",
+                  name: "User twitter",
+                  help: "User profile twitter address",
+                },
+                {
+                  value: "{{user.contact.facebook}}",
+                  name: "User facebook",
+                  help: "User profile facebook address",
+                },
+              ],
+            },
+          ],
+        },
+        {
+          name: "System",
+          items: [
+            {
+              value: `{{system.supportEmail}}`,
+              name: "Support email",
+              help: "support email address as a link",
+            },
+            {
+              value: "{{system.websiteLink}}",
+              name: "Website link",
+            },
+          ],
+        },
+        {
+          value: "{{UNSUBSCRIBE_LINK}}}",
+          name: "Unsubscribe",
+          help: "Unsubscribe link",
+        },
+      ];
+
+      tinymce.init({
+        selector: "textarea.tinymce",
+        plugins: "code merge-fields",
+        toolbar: "merge-fields-sidebar",
+        font_css: "./style.css",
+        merge_fields: sampleTree,
+        height: 500,
+      });
+    </script>
+  </head>
+  <body>
+    <textarea class="tinymce">
+      <p>Hello {{user.firstName}} {{user.lastName}},</p>
+      <p>You are invited to join our website {{system.websiteLink}}</p>
+      <p>Feel free to contact us on {{system.supportEmail}} in case of any questions</p>
+      <p> field{{undefined.merge.field}}</p>
+    </textarea>
+  </body>
+</html>
