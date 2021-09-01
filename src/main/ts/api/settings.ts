@@ -19,3 +19,7 @@ export const getSuffix = (editor: Editor): string =>
 
 export const getSeparator = (editor: Editor): string =>
   editor.getParam("merge_field_separator", ">");
+
+export const helpShouldBeShownInModal = (editor: Editor): boolean => {
+  return editor.getParam("merge_fields_show_help_in", "tooltip") === "modal";
+};

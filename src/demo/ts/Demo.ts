@@ -14,7 +14,7 @@ const sampleTree = [
       {
         value: "{{user.firstName}}",
         name: "First name",
-        help: "Customer's first name",
+        help: "Customer's <code>first</code> name",
       },
       {
         value: "{{user.lastName}}",
@@ -65,5 +65,6 @@ tinymce.init({
   toolbar: "merge-fields-sidebar",
   font_css: "/scratch/compiled/main.css",
   merge_fields: sampleTree,
+  merge_fields_show_help_in: "modal",
   height: 500,
 });

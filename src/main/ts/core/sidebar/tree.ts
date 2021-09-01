@@ -1,17 +1,32 @@
-import { MergeField } from "../../api/settings";
+import { helpShouldBeShownInModal, MergeField } from "../../api/settings";
 import buildID from "../../util/build-id";
 import { info_icon } from "./icons";
 import { Editor } from "tinymce";
 
-function help(text?: string): string {
-  if (!text) {
+function help(editor: Editor, field: MergeField): string {
+  if (!field.help) {
     return "";
   }
+  if (helpShouldBeShownInModal(editor)) {
+    return `
+      <button type="button" class="info help-dialog cursor-pointer" data-help="${encodeURI(
+        field.help
+      )}" data-name="${encodeURI(field.name)}">
+          <img src="data:image/svg+xml;base64,${btoa(
+            info_icon
+          )}" alt="info" width="24px" height="24px" />
+      </button>
+    `;
+  }
+
   return `<span class="info tooltip">
         <img src="data:image/svg+xml;base64,${btoa(
           info_icon
         )}" alt="info" width="24px" height="24px" />
-        <span class="tooltip-text">${text}</span>
+        <span class="tooltip-text">${field.help.replace(
+          /(<([^>]+)>)/gi,
+          ""
+        )}</span>
   </span>`;
 }
 
@@ -61,7 +76,7 @@ function trunk(
     .map((limb) => {
       return `<li class="tree__item">${
         isBranch(limb) ? branch(editor, limb, level, isSearching) : twig(limb)
-      }${limb.help ? help(limb.help) : ""}</li>`;
+      }${limb.help ? help(editor, limb) : ""}</li>`;
     })
     .join("");
 }
