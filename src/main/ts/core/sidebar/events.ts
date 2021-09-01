@@ -2,6 +2,7 @@ import { Editor } from "tinymce";
 import buildTree from "./tree";
 import { getMergeFields } from "../../api/settings";
 import { INSERT_MERGE_FIELD_COMMAND } from "./command";
+import showHelpDialog from "./help-dialog";
 
 function sidebarParentElement(editor: Editor) {
   return editor.$.find(`#tinymce-merge-fields-${editor.id}`)[0];
@@ -50,15 +51,28 @@ function onSearch(editor: Editor) {
 
 function bindMergeFieldEvents(editor: Editor) {
   sidebarParentElement(editor).addEventListener("click", (event) => {
-    if (
-      event.target.type === "button" &&
-      event.target.classList.contains("merge-field-button")
-    ) {
+    let button = event.target;
+    if (event.target.nodeName !== "BUTTON") {
+      button = event.target.closest("button");
+    }
+    if (!button) {
+      return;
+    }
+    if (button.classList.contains("merge-field-button")) {
       editor.execCommand(INSERT_MERGE_FIELD_COMMAND, false, {
-        value: decodeURI(event.target.dataset.value),
-        help: decodeURI(event.target.dataset.help),
-        name: decodeURI(event.target.dataset.name),
+        value: decodeURI(button.dataset.value),
+        help: decodeURI(button.dataset.help),
+        name: decodeURI(button.dataset.name),
       });
+      return;
+    }
+    if (button.classList.contains("help-dialog")) {
+      showHelpDialog(
+        editor,
+        decodeURI(button.dataset.name),
+        decodeURI(button.dataset.help)
+      );
+      return;
     }
   });
 }

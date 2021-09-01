@@ -1,7 +1,15 @@
-import { TinyHooks, TinyAssertions } from "@ephox/mcagar";
+import { TinyHooks, TinyAssertions, TinyUiActions } from "@ephox/mcagar";
 import Plugin from "./plugin";
 import { Editor } from "tinymce";
-import { clickOnTreeElement, getFieldHtml, openSideBar } from "./util";
+import { assert } from "chai";
+import {
+  clickOnHelpIcon,
+  clickOnTreeElement,
+  getCurrentDialogBody,
+  getCurrentDialogTitle,
+  getFieldHtml,
+  openSideBar,
+} from "./util";
 
 // This an example of a browser test of the editor.
 describe("browser.PluginTestWithCustomOptions", () => {
@@ -64,6 +72,7 @@ describe("browser.PluginTestWithCustomOptions", () => {
       merge_field_separator: null,
       merge_field_prefix: "|",
       merge_field_suffix: "|",
+      merge_fields_show_help_in: "modal",
     },
     [Plugin],
     true
@@ -82,6 +91,20 @@ describe("browser.PluginTestWithCustomOptions", () => {
       editor,
       `<p>${getFieldHtml(fixtures[1]["items"][0].value, "Support email")}</p>`,
       { format: "raw" }
+    );
+  });
+
+  it("should show a modal with help content, When clicking on help icon and  its set to show the help in modal", async () => {
+    const editor = <Editor>editorWithoutSeparator.editor();
+    openSideBar(editor);
+
+    clickOnHelpIcon(editor, "Support email");
+    await TinyUiActions.pWaitForDialog(editor);
+
+    assert.equal(getCurrentDialogTitle(editor), "Support email");
+    assert.equal(
+      getCurrentDialogBody(editor),
+      "support email address as a link"
     );
   });
 });
