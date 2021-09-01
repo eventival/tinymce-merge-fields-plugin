@@ -15,7 +15,10 @@ export const setSearchValue = (editor: Editor, value: string): void => {
   inputField.dispatchEvent(event);
 };
 
-export const getTreeButton = (editor: Editor, button: string):HTMLButtonElement => {
+export const getTreeButton = (
+  editor: Editor,
+  button: string
+): HTMLButtonElement => {
   return editor.$.find(`.tinymce-merge-fields button:contains(${button})`)[0];
 };
 
@@ -23,16 +26,16 @@ export const clickOnTreeElement = (editor: Editor, button: string): void => {
   getTreeButton(editor, button).click();
 };
 
-export const getCurrentDialogElement = (editor: Editor):HTMLDivElement => {
+export const getCurrentDialogElement = (editor: Editor): HTMLDivElement => {
   return editor.$.find(".tox-dialog")[0];
 };
 
-export const getCurrentDialogTitle = (editor: Editor):string => {
+export const getCurrentDialogTitle = (editor: Editor): string => {
   return getCurrentDialogElement(editor).querySelector(".tox-dialog__title")
     .innerHTML;
 };
 
-export const getCurrentDialogBody = (editor: Editor):string => {
+export const getCurrentDialogBody = (editor: Editor): string => {
   return getCurrentDialogElement(editor).querySelector(
     ".tox-dialog__body .tox-form__group"
   ).innerHTML;
