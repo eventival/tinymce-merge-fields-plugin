@@ -39,7 +39,7 @@ tinymce.init({
 | merge_field_prefix | Your merge field prefix | `{{`
 | merge_field_suffix | Your merge field suffix | `}}`
 | merge_field_separator | Merge field path separator. Set to `null` if you don't want to show the path in editor | `>`
-| merge_fields_show_help_in |How to show the help for merge fields. It can be `dialog` or `tooltip`. You can show more complex HTML inside the dialog, for the `tooltip` plugin will strip the HTML tags by default. | `tooltip`
+| merge_fields_show_help_in |How to show the help for merge fields. It can be `modal` or `tooltip`. You can show more complex HTML inside the dialog, for the `tooltip` plugin will strip the HTML tags by default. | `tooltip`
 
 ## Contributing
 1. Fork it!
