@@ -15,6 +15,45 @@
       <p>You are invited to join our website {{system.websiteLink}}</p>
       <p>Feel free to contact us on {{system.supportEmail}} in case of any questions</p>
       <p> field{{undefined.merge.field}}</p>
+      <table style="border-collapse: collapse; width: 100%;" border="1">
+        <tbody>
+          <tr>
+            <td style="width: 19.2522%;">{{user.firstName}}</td>
+            <td style="width: 19.2522%;">&nbsp;</td>
+            <td style="width: 19.2522%;">&nbsp;</td>
+            <td style="width: 19.2522%;">&nbsp;</td>
+            <td style="width: 19.253%;">&nbsp;</td>
+          </tr>
+          <tr>
+            <td style="width: 19.2522%;">&nbsp;</td>
+            <td style="width: 19.2522%;">&nbsp;</td>
+            <td style="width: 19.2522%;">{{user.lastName}}</td>
+            <td style="width: 19.2522%;">&nbsp;</td>
+            <td style="width: 19.253%;">&nbsp;</td>
+          </tr>
+          <tr>
+            <td style="width: 19.2522%;">&nbsp;</td>
+            <td style="width: 19.2522%;">&nbsp;</td>
+            <td style="width: 19.2522%;">&nbsp;</td>
+            <td style="width: 19.2522%;">{{system.supportEmail}}</td>
+            <td style="width: 19.253%;">&nbsp;</td>
+          </tr>
+          <tr>
+            <td style="width: 19.2522%;">&nbsp;</td>
+            <td style="width: 19.2522%;">&nbsp;</td>
+            <td style="width: 19.2522%;">&nbsp;</td>
+            <td style="width: 19.2522%;">&nbsp;</td>
+            <td style="width: 19.253%;">{{UNSUBSCRIBE_LINK}}}</td>
+          </tr>
+        </tbody>
+        </table>
+        <ul>
+          <li>{{user.firstName}}</li>
+          <li>{{user.lastName}}</li>
+          <li>list item</li>
+          <li>{{user.contact.twitter}}</li>
+          <li>{{user.contact.facebook}}</li>
+        </ul>
     </textarea>
   </body>
 </html>

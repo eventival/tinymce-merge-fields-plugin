@@ -30,6 +30,16 @@ const getMatchedFields = (editor: Editor, value: string): string[] => {
   return result;
 };
 
+const isVariable = (element) => {
+  if (
+    typeof element.getAttribute === "function" &&
+    element.hasAttribute("data-original-variable")
+  )
+    return true;
+
+  return false;
+};
+
 const stringToHtml = (editor: Editor): void => {
   const tree = getMergeFields(editor);
   let nodes = [];
@@ -39,7 +49,7 @@ const stringToHtml = (editor: Editor): void => {
     function (node) {
       const regex = fieldRegex(getPrefix(editor), getSuffix(editor));
       if (
-        node.nodeType == 1 &&
+        node.nodeType == 3 &&
         node.textContent &&
         regex.test(node.textContent)
       ) {
@@ -60,7 +70,15 @@ const stringToHtml = (editor: Editor): void => {
       }
     });
     if (replacedText !== node.textContent) {
-      editor.dom.replace(editor.dom.create("p", {}, replacedText), node);
+      const div = editor.dom.create("div", null, replacedText);
+      let newNode = div.lastChild;
+      do {
+        editor.dom.insertAfter(newNode, node);
+        if (isVariable(node)) {
+          editor.selection.setCursorLocation(node.nextSibling, 0);
+        }
+      } while ((newNode = div.lastChild));
+      editor.dom.remove(node);
     }
   });
 };
