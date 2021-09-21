@@ -48,7 +48,7 @@ tinymce.init({
 4. Push to the branch: git push origin my-new-feature
 
 ## Develop
-To start a HTTP server to test your changes you can run following command and open http://localhost:8000/src/demo/html/index.html  URL in your browser.
+To start a HTTP server to test your changes you can run following command and open http://localhost:8001/src/demo/html/index.html  URL in your browser.
 ```shell
 yarn start
 ```

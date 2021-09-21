@@ -108,10 +108,10 @@ describe("browser.PluginTestWithDefaults", () => {
     });
     TinyAssertions.assertContent(
       editor,
-      `<p>${getFieldHtml(
+      `<p><span>${getFieldHtml(
         fixtures[1]["items"][0].value,
         "System &gt; Support email"
-      )}</p>`,
+      )}</span></p>`,
       { format: "raw" }
     );
   });
