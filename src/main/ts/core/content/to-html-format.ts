@@ -39,7 +39,7 @@ const stringToHtml = (editor: Editor): void => {
     function (node) {
       const regex = fieldRegex(getPrefix(editor), getSuffix(editor));
       if (
-        node.nodeType == 1 &&
+        node.nodeType == 3 &&
         node.textContent &&
         regex.test(node.textContent)
       ) {
