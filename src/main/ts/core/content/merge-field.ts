@@ -1,4 +1,4 @@
-import { getMergeFields, getSeparator, MergeField } from "../../api/settings";
+import {getMergeFields, getSeparator, isStylingEnabled, MergeField} from "../../api/settings";
 import { Editor } from "tinymce";
 
 const getValue = (editor: Editor, field: MergeField): string => {
@@ -10,6 +10,9 @@ const getValue = (editor: Editor, field: MergeField): string => {
 };
 
 const buildMergeField = (editor: Editor, field: MergeField): string => {
+  if(!isStylingEnabled(editor)){
+    return field.value;
+  }
   return `<span class="merge-value" data-original-field-value="${encodeURI(
     field.value
   )}" contenteditable="false">
